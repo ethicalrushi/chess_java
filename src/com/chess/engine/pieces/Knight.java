@@ -18,8 +18,14 @@ public class Knight extends Piece {
     /* offset for knight move */
     private  final static int[] CANDIDATE_MOVE_COORDINATES = {-17, -15, -10, -6, 6, 10, 15, 17};
 
-    public Knight(int piecePosition, Alliance pieceAlliance) {
-        super(piecePosition, pieceAlliance);
+    @Override
+    public String toString() {
+        return PieceType.KNIGHT.toString();
+    }
+
+    public Knight(Alliance pieceAlliance, int piecePosition) {
+
+        super(PieceType.KNIGHT, piecePosition, pieceAlliance);
     }
 
     @Override

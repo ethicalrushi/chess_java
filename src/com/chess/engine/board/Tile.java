@@ -18,7 +18,7 @@ public abstract class Tile {
     private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
         final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
 
-        for(int i = 0; i< BoardUtils.MIN_TILES; i++){
+        for(int i = 0; i< BoardUtils.NUM_TILES; i++){
             emptyTileMap.put(i, new EmptyTile(i));
         }
         return ImmutableMap.copyOf(emptyTileMap);
@@ -61,6 +61,11 @@ public abstract class Tile {
         public Piece getPiece() {
             return null;
         }
+
+        @Override
+        public String toString() {
+            return "-";
+        }
     }
 
     /***
@@ -83,6 +88,12 @@ public abstract class Tile {
         @Override
         public Piece getPiece() {
             return this.pieceOnTile;
+        }
+
+        @Override
+        public String toString() {
+            return this.getPiece().getPieceAlliance().isBlack() ? this.getPiece().toString().toLowerCase() :
+                    this.getPiece().toString();
         }
     }
 
