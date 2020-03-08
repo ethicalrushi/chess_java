@@ -1,4 +1,13 @@
 package com.chess.engine.player;
 
-public class MoveStatus {
+public enum MoveStatus {
+
+    DONE {
+        @Override
+        boolean isDone() {
+            return isDone();
+        }
+    };
+
+    abstract boolean isDone();
 }
